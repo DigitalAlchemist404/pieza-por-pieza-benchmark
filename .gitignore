@@ -1,0 +1,17 @@
+# Modelos
+*.gguf
+*.safetensors
+
+# Archivos locales
+*.zip
+*.log
+*.stderr
+*.stdout
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Resultados originales y metadatos locales
+results/
