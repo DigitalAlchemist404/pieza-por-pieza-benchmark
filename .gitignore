@@ -1,17 +1,16 @@
-# Modelos
+# Archivos locales / privados
+results/
 *.gguf
 *.safetensors
-
-# Archivos locales
 *.zip
 *.log
 *.stderr
 *.stdout
-
-# Python
+.venv/
 __pycache__/
 *.pyc
-.venv/
-
-# Resultados originales y metadatos locales
-results/
+.env
+*.key
+config.local.json
+*.exe
+.DS_Store

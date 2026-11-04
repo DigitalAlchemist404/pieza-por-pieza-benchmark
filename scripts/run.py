@@ -1,16 +1,35 @@
 #!/usr/bin/env python3
 """Benchmark local de cuatro variantes Qwen3.5; no descarga modelos."""
-import argparse, csv, datetime, hashlib, json, os, pathlib, re, shutil, subprocess, sys
+import argparse, csv, datetime, hashlib, json, os, pathlib, platform, re, shutil, subprocess, sys
 
 HOME = pathlib.Path.home()
 MANIFESTS = HOME / '.unsloth/studio/cache/hub-state/manifests'
 BENCH = HOME / 'Documents/ai/llamacpp/llama.cpp/build/bin/llama-bench'
 WANTED = {'Q4_K_M':'normal_q4','IQ2_XXS':'normal_iq2','UD-Q4_K_XL':'dynamic_q4','UD-IQ2_XXS':'dynamic_iq2'}
 
+def local_config():
+    cfg = pathlib.Path(__file__).resolve().parents[1] / 'config.local.json'
+    if not cfg.is_file(): return {}
+    return json.loads(cfg.read_text(encoding='utf-8'))
+
+def binary_path(name, fallback):
+    return pathlib.Path(local_config().get('binaries', {}).get(name, str(fallback)))
+
 def discover():
+    config_models = local_config().get('models', {})
+    if config_models:
+        found = {}
+        for name, value in config_models.items():
+            if name not in WANTED.values(): continue
+            path = pathlib.Path(value).expanduser()
+            if path.is_file():
+                found[name] = {'variant': name, 'path': str(path.resolve()), 'bytes': path.stat().st_size, 'expected_bytes': path.stat().st_size, 'source': 'config.local.json'}
+            else:
+                found[name] = {'variant': name, 'error': f'Archivo inexistente: {path}'}
+        return found
     found = {}
     if not MANIFESTS.exists():
-        raise RuntimeError(f'No existe la carpeta de manifiestos: {MANIFESTS}')
+        raise RuntimeError('No hay modelos configurados. Ejecutá python scripts/configure.py para indicar tus GGUF.')
     for m in MANIFESTS.rglob('*.json'):
         if 'qwen3.5-35b-a3b-gguf' not in m.name.lower():
             continue
@@ -45,7 +64,7 @@ def main():
     ap.add_argument('--verify-sha',action='store_true',help='Leer 65+ GB para comprobar integridad (lento)')
     ap.add_argument('--run',action='store_true',help='Ejecutar benchmarks; sin esta opción solo diagnostica')
     ap.add_argument('--reps',type=int,default=3)
-    ap.add_argument('--bench',type=pathlib.Path,default=BENCH)
+    ap.add_argument('--bench',type=pathlib.Path,default=binary_path('llama-bench', BENCH))
     ap.add_argument('--out',type=pathlib.Path,default=pathlib.Path('results'))
     args=ap.parse_args()
     if args.reps<1: ap.error('--reps debe ser >= 1')
@@ -61,9 +80,9 @@ def main():
             if args.verify_sha:
                 print('    Calculando SHA-256...',flush=True)
                 item['actual_sha256']=sha256(item['path'])
-                item['sha_ok']=item['actual_sha256']==item['expected_sha256']
+                item['sha_ok']=item['actual_sha256']==item['expected_sha256'] if item.get('expected_sha256') else None
                 print('    SHA-256:', 'OK' if item['sha_ok'] else 'NO COINCIDE',flush=True)
-    info={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'host':os.uname().nodename,'arch':os.uname().machine,'models':models,'bench':str(args.bench),'repetitions':args.reps}
+    info={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'host':platform.node(),'arch':platform.machine(),'models':models,'bench':str(args.bench),'repetitions':args.reps}
     root=HOME/'Documents/ai/llamacpp/llama.cpp'
     try: info['llamacpp_git']=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True,stderr=subprocess.DEVNULL).strip()
     except Exception: info['llamacpp_git']=None
@@ -96,7 +115,7 @@ def main():
         writer=csv.DictWriter(f,fieldnames=['model','variant','scenario','size_bytes','exit_code','stdout','stderr','command'])
         writer.writeheader()
         for row in rows: writer.writerow({**row,'command':' '.join(row['command'])})
-    print('\nCOMPLETADO. Revisá results/runs.csv y los JSONL. No son medidas de calidad.',flush=True)
+    print('\nCOMPLETADO. Resultados guardados en results/runs.csv y JSONL.',flush=True)
     return 0
 
 if __name__=='__main__':
