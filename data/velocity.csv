@@ -1,0 +1,9 @@
+model,scenario,avg_tokens_per_second,stddev_tokens_per_second
+dynamic_iq2,decode_128,88.017458,0.610899
+dynamic_iq2,prefill_512,2366.536324,6.756451
+dynamic_q4,decode_128,64.762438,4.192124
+dynamic_q4,prefill_512,2138.306335,60.703911
+normal_iq2,decode_128,96.057804,0.700338
+normal_iq2,prefill_512,2504.113805,27.249926
+normal_q4,decode_128,78.005553,0.46769
+normal_q4,prefill_512,2138.689804,13.100946

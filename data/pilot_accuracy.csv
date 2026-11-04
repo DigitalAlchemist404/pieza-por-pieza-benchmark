@@ -1,0 +1,13 @@
+model,benchmark,answered,correct,accuracy_pct,kind
+dynamic_iq2,arc,5,5,100.0,pilot
+dynamic_iq2,gsm8k,5,4,80.0,pilot
+dynamic_iq2,mmlu,5,3,60.0,pilot
+dynamic_q4,arc,5,1,20.0,pilot
+dynamic_q4,gsm8k,5,4,80.0,pilot
+dynamic_q4,mmlu,5,4,80.0,pilot
+normal_iq2,arc,5,5,100.0,pilot
+normal_iq2,gsm8k,5,3,60.0,pilot
+normal_iq2,mmlu,5,3,60.0,pilot
+normal_q4,arc,5,3,60.0,pilot
+normal_q4,gsm8k,5,4,80.0,pilot
+normal_q4,mmlu,5,4,80.0,pilot
