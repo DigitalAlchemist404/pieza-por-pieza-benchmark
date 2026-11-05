@@ -1,0 +1,122 @@
+model,benchmark,index,answer,gold,parsed,correct,finish_reason
+normal_q4,mmlu,1,D) 1 x 1,D,D,True,stop
+normal_q4,mmlu,5,A) The capital account,A,A,True,stop
+normal_q4,mmlu,7,C) 6 subjects,C,C,True,stop
+normal_q4,mmlu,9,C) radiation.,C,C,True,stop
+normal_q4,mmlu,20,B) economic issues,B,B,True,stop
+normal_q4,mmlu,23,A) Social Contract,A,A,True,stop
+normal_q4,mmlu,29,"D) Not wrong, Not wrong",D,D,True,stop
+normal_q4,mmlu,34,B) I and II.,B,B,True,stop
+normal_q4,mmlu,39,A) 26%,A,A,True,stop
+normal_q4,mmlu,41,"C) True, False",A,C,False,stop
+normal_q4,mmlu,72,D) 3.66,B,D,False,stop
+normal_q4,mmlu,74,A) II only,A,A,True,stop
+normal_q4,mmlu,81,D) tafsir,D,D,True,stop
+normal_q4,mmlu,95,D) 91,A,D,False,stop
+normal_q4,mmlu,99,D) I and II only,D,D,True,stop
+normal_q4,arc,15,A) a magnet,A,A,True,stop
+normal_q4,arc,16,B) tectonic movements,C,B,False,stop
+normal_q4,arc,18,D) an inference.,D,D,True,stop
+normal_q4,arc,21,C) 10 years,B,C,False,stop
+normal_q4,arc,40,A) rocks,A,A,True,stop
+normal_q4,arc,46,A) deposition of sediments,A,A,True,stop
+normal_q4,arc,73,B) cell wall,B,B,True,stop
+normal_q4,arc,76,A) primary succession,A,A,True,stop
+normal_q4,arc,81,"D) 75% black, 25% white",D,D,True,stop
+normal_q4,arc,82,C) coal,C,C,True,stop
+normal_q4,arc,88,D) Moon-Earth-Sun,D,D,True,stop
+normal_q4,arc,92,D) radioactive isotopes,D,D,True,stop
+normal_q4,arc,95,A) sunlight,A,A,True,stop
+normal_q4,arc,96,3) 20 N,3,3,True,stop
+normal_q4,arc,98,B) hair style,B,B,True,stop
+dynamic_q4,mmlu,1,D) 1 x 1,D,D,True,stop
+dynamic_q4,mmlu,5,A) The capital account,A,A,True,stop
+dynamic_q4,mmlu,7,C) 6 subjects,C,C,True,stop
+dynamic_q4,mmlu,9,C) radiation.,C,C,True,stop
+dynamic_q4,mmlu,14,D) Obesity,D,D,True,stop
+dynamic_q4,mmlu,20,B) economic issues,B,B,True,stop
+dynamic_q4,mmlu,23,A) Social Contract,A,A,True,stop
+dynamic_q4,mmlu,29,"D) Not wrong, Not wrong",D,D,True,stop
+dynamic_q4,mmlu,39,A) 26%,A,A,True,stop
+dynamic_q4,mmlu,72,D) 3.66,B,D,False,stop
+dynamic_q4,mmlu,74,A) II only,A,A,True,stop
+dynamic_q4,mmlu,81,D) tafsir,D,D,True,stop
+dynamic_q4,mmlu,86,D) Jupiter,D,D,True,stop
+dynamic_q4,mmlu,95,D) 91,A,D,False,stop
+dynamic_q4,mmlu,99,D) I and II only,D,D,True,stop
+dynamic_q4,arc,9,D) 4,D,D,True,stop
+dynamic_q4,arc,15,A) a magnet,A,A,True,stop
+dynamic_q4,arc,18,D) an inference.,D,D,True,stop
+dynamic_q4,arc,21,C) 10 years,B,C,False,stop
+dynamic_q4,arc,30,"C) large, sharp teeth",C,C,True,stop
+dynamic_q4,arc,39,A) heavier rainfall,A,A,True,stop
+dynamic_q4,arc,40,A) rocks,A,A,True,stop
+dynamic_q4,arc,46,A) deposition of sediments,A,A,True,stop
+dynamic_q4,arc,76,A) primary succession,A,A,True,stop
+dynamic_q4,arc,86,B) greater momentum,B,B,True,stop
+dynamic_q4,arc,88,D) Moon-Earth-Sun,D,D,True,stop
+dynamic_q4,arc,92,D) radioactive isotopes,D,D,True,stop
+dynamic_q4,arc,95,A) sunlight,A,A,True,stop
+dynamic_q4,arc,96,3) 20 N,3,3,True,stop
+normal_iq2,mmlu,0,A) Lower Lower,A,A,True,stop
+normal_iq2,mmlu,1,D) 1 x 1,D,D,True,stop
+normal_iq2,mmlu,2,"D) Ethical, Descriptive",C,D,False,stop
+normal_iq2,mmlu,5,A) The capital account,A,A,True,stop
+normal_iq2,mmlu,7,A) 4 subjects,C,A,False,stop
+normal_iq2,mmlu,12,"C) Not wrong, Wrong",A,C,False,stop
+normal_iq2,mmlu,13,D) 20%,D,D,True,stop
+normal_iq2,mmlu,14,D) Obesity,D,D,True,stop
+normal_iq2,mmlu,15,"A) True, True",A,A,True,stop
+normal_iq2,mmlu,24,"D) Not wrong, Not wrong",B,D,False,stop
+normal_iq2,mmlu,29,"D) Not wrong, Not wrong",D,D,True,stop
+normal_iq2,mmlu,30,B) Improve the optimisation algorithm being used for error minimisation.,B,B,True,stop
+normal_iq2,mmlu,34,B) I and II.,B,B,True,stop
+normal_iq2,mmlu,39,A) 26%,A,A,True,stop
+normal_iq2,mmlu,41,"B) False, False",A,B,False,stop
+normal_iq2,mmlu,42,"C) Dialysis center: Type II error, towel manufacturer: Type I error",C,C,True,stop
+normal_iq2,mmlu,61,"B) Wrong, Not wrong",B,B,True,stop
+normal_iq2,mmlu,64,D) II and IV,D,D,True,stop
+normal_iq2,mmlu,65,"B) Wrong, Not wrong",A,B,False,stop
+normal_iq2,mmlu,68,"B) Uruk, 10,000 people",B,B,True,stop
+normal_iq2,mmlu,74,A) II only,A,A,True,stop
+normal_iq2,mmlu,80,C) slightly more than 20L,A,C,False,stop
+normal_iq2,mmlu,82,B) Fifty-one percent,B,B,True,stop
+normal_iq2,mmlu,85,A) A government subsidy.,A,A,True,stop
+normal_iq2,mmlu,86,D) Jupiter,D,D,True,stop
+normal_iq2,mmlu,87,"C) $14,000",C,C,True,stop
+normal_iq2,mmlu,95,D) 91,A,D,False,stop
+normal_iq2,mmlu,99,D) I and II only,D,D,True,stop
+normal_iq2,arc,15,A) a magnet,A,A,True,stop
+normal_iq2,arc,18,D) an inference.,D,D,True,stop
+normal_iq2,arc,21,C) 10 years,B,C,False,stop
+normal_iq2,arc,29,D) anemometer and thermometer,D,D,True,stop
+normal_iq2,arc,36,C) 6.0 kg x m/s,C,C,True,stop
+normal_iq2,arc,42,A) increase resource availability.,A,A,True,stop
+normal_iq2,arc,45,D) It becomes suspect.,B,D,False,stop
+normal_iq2,arc,46,A) deposition of sediments,A,A,True,stop
+normal_iq2,arc,47,A) construct a prototype of a boat for testing,A,A,True,stop
+normal_iq2,arc,60,D) 7,D,D,True,stop
+normal_iq2,arc,74,2) joined together as one landmass,2,2,True,stop
+normal_iq2,arc,81,"D) 75% black, 25% white",D,D,True,stop
+normal_iq2,arc,82,C) coal,C,C,True,stop
+normal_iq2,arc,84,A) 666 W,B,A,False,stop
+normal_iq2,arc,88,D) Moon-Earth-Sun,D,D,True,stop
+normal_iq2,arc,92,D) radioactive isotopes,D,D,True,stop
+normal_iq2,arc,96,3) 20 N,3,3,True,stop
+normal_iq2,arc,97,D) volcanic.,D,D,True,stop
+dynamic_iq2,mmlu,0,A) Lower Lower,A,A,True,stop
+dynamic_iq2,mmlu,1,D) 1 x 1,D,D,True,stop
+dynamic_iq2,mmlu,2,"D) Ethical, Descriptive",C,D,False,stop
+dynamic_iq2,mmlu,5,A) The capital account,A,A,True,stop
+dynamic_iq2,mmlu,7,C) 6 subjects,C,C,True,stop
+dynamic_iq2,mmlu,15,"A) True, True",A,A,True,stop
+dynamic_iq2,mmlu,29,"D) Not wrong, Not wrong",D,D,True,stop
+dynamic_iq2,mmlu,39,A) 26%,A,A,True,stop
+dynamic_iq2,mmlu,41,"A) True, True",A,A,True,stop
+dynamic_iq2,mmlu,72,D) 3.66,B,D,False,stop
+dynamic_iq2,mmlu,74,A) II only,A,A,True,stop
+dynamic_iq2,mmlu,81,D) tafsir,D,D,True,stop
+dynamic_iq2,arc,15,A) a magnet,A,A,True,stop
+dynamic_iq2,arc,21,B) 5 years,B,B,True,stop
+dynamic_iq2,arc,84,A) 666 W,B,A,False,stop
+dynamic_iq2,arc,96,3) 20 N,3,3,True,stop
