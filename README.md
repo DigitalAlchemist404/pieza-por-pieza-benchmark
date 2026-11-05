@@ -19,7 +19,47 @@ Probamos cuatro GGUF de **Qwen3.5-35B-A3B** en una **NVIDIA GB10 / GX10**:
 
 También conservamos la velocidad de procesamiento y generación, y tenemos una opción para medir perplejidad con un corpus de texto propio.
 
-## 📊 Lo que ya corrimos
+<!-- CAPACIDADES_NO_THINKING_INICIO -->
+## 🏆 Evaluación principal — 1,200 respuestas (sin thinking)
+
+Ejecutamos cuatro variantes GGUF con 100 preguntas por benchmark
+y por modelo: **1,200 respuestas en total**.
+
+| Modelo | MMLU | GSM8K | ARC-Challenge |
+|---|---:|---:|---:|
+| Normal Q4_K_M | 80% | 34% | 96% |
+| Dynamic Q4_K_XL | 80% | 31% | 96% |
+| Normal IQ2_XXS | 74% | 26% | 91% |
+| Dynamic IQ2_XXS | 81% | 29% | 94% |
+
+**Condiciones registradas:** temperatura 0, semilla 42,
+máximo 512 tokens por respuesta y solicitud de
+`enable_thinking=false`.
+
+La configuración registra el modo solicitado, pero no demuestra
+por sí sola que cada modelo lo haya respetado internamente.
+
+Se recalificaron **121 respuestas de opción múltiple** que
+contenían una letra inicial seguida del texto de la opción.
+Las respuestas originales se conservaron para auditoría.
+
+Estos porcentajes corresponden a nuestro protocolo personalizado,
+no a puntuaciones oficiales de los benchmarks completos.
+Las diferencias pequeñas no demuestran superioridad estadística.
+Tampoco hemos confirmado la equivalencia exacta de los checkpoints
+utilizados por ambas familias de GGUF.
+
+**Archivos públicos:**
+
+- [Resultados de capacidades](data/capacidades_no_thinking_n100_seed42.csv)
+- [Correcciones de extracción](data/correcciones_extraccion_121.csv)
+- [Selección de preguntas](data/dataset_manifest_no_thinking.json)
+- [Configuración registrada](data/run_config_no_thinking.json)
+- [Metodología y limitaciones](docs/METODOLOGIA_CAPACIDADES.md)
+
+<!-- CAPACIDADES_NO_THINKING_FIN -->
+
+## 📊 Pruebas piloto y velocidad
 
 En `data/pilot_accuracy.csv` están los resultados del **piloto de 5 preguntas por prueba y modelo**. Es una prueba de funcionamiento, no nuestra evaluación final. En `data/velocity.csv` están los resultados del benchmark de velocidad ya realizado. Las salidas originales están dentro de `results/` en este paquete, pero Git las ignora para que no subamos rutas de nuestro equipo por accidente.
 
@@ -194,43 +234,3 @@ La primera descarga de datasets necesita Internet; después, los modelos y la in
 ## 🏆 ¿Por qué compartirlo?
 
 ¡Porque aprender es mucho más divertido cuando podemos poner las cosas a prueba! Acá comparto los scripts, los resultados y el procedimiento. Si alguien lo prueba en su equipo y obtiene resultados diferentes, ¡me encantaría comparar! 🔥
-
-<!-- CAPACIDADES_NO_THINKING_INICIO -->
-## 🎯 Capacidades: evaluación sin thinking
-
-Ejecutamos cuatro variantes GGUF con 100 preguntas por benchmark
-y por modelo: **1,200 respuestas en total**.
-
-| Modelo | MMLU | GSM8K | ARC-Challenge |
-|---|---:|---:|---:|
-| Normal Q4_K_M | 80% | 34% | 96% |
-| Dynamic Q4_K_XL | 80% | 31% | 96% |
-| Normal IQ2_XXS | 74% | 26% | 91% |
-| Dynamic IQ2_XXS | 81% | 29% | 94% |
-
-**Condiciones registradas:** temperatura 0, semilla 42,
-máximo 512 tokens por respuesta y solicitud de
-`enable_thinking=false`.
-
-La configuración registra el modo solicitado, pero no demuestra
-por sí sola que cada modelo lo haya respetado internamente.
-
-Se recalificaron **121 respuestas de opción múltiple** que
-contenían una letra inicial seguida del texto de la opción.
-Las respuestas originales se conservaron para auditoría.
-
-Estos porcentajes corresponden a nuestro protocolo personalizado,
-no a puntuaciones oficiales de los benchmarks completos.
-Las diferencias pequeñas no demuestran superioridad estadística.
-Tampoco hemos confirmado la equivalencia exacta de los checkpoints
-utilizados por ambas familias de GGUF.
-
-**Archivos públicos:**
-
-- [Resultados de capacidades](data/capacidades_no_thinking_n100_seed42.csv)
-- [Correcciones de extracción](data/correcciones_extraccion_121.csv)
-- [Selección de preguntas](data/dataset_manifest_no_thinking.json)
-- [Configuración registrada](data/run_config_no_thinking.json)
-- [Metodología y limitaciones](docs/METODOLOGIA_CAPACIDADES.md)
-
-<!-- CAPACIDADES_NO_THINKING_FIN -->
