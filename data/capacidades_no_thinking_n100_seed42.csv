@@ -1,0 +1,13 @@
+model,benchmark,total,correct,incorrect,unresolved,accuracy_pct
+normal_q4,mmlu,100,80,20,0,80.0
+normal_q4,gsm8k,100,34,66,0,34.0
+normal_q4,arc,100,96,4,0,96.0
+dynamic_q4,mmlu,100,80,20,0,80.0
+dynamic_q4,gsm8k,100,31,69,0,31.0
+dynamic_q4,arc,100,96,4,0,96.0
+normal_iq2,mmlu,100,74,26,0,74.0
+normal_iq2,gsm8k,100,26,74,0,26.0
+normal_iq2,arc,100,91,9,0,91.0
+dynamic_iq2,mmlu,100,81,19,0,81.0
+dynamic_iq2,gsm8k,100,29,71,0,29.0
+dynamic_iq2,arc,100,94,6,0,94.0
